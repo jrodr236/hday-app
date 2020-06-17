@@ -1,0 +1,40 @@
+Wuhan,1,tothom,"A las maquinas de café se les introdujo un virus que no las deja funcionar correctamente y se estan apoderando de las cafeterías, debes conseguir que paren de hacer lo que les apetezca y que vuelvan a la normalidad entrando a esta IP con el PUTTY: 40.118.28.34, ojo no puedes entrar con tu identidad por lo que deberas de entrar con el nombre en clave de ""zimbabue"" cuya contraseña es patata",88971,100
+Wuhan,2,tothom,"Las maquinas de cafè son fieles seguidoras de la saga de star wars, por ese motivo para poderte infiltrar en sus filas tienes que responder a la siguiente pregunta: Cúal es el nombre que adoptó el personatge de Star Wars R2-D2 en castellano?",arturito,100
+Wuhan,3,tothom,"Hay un archivo corrupto en alguna de las carpetas ""home"". Encuentralo e introduce el numero que contiene para salvar el sistema. Este codigo es la unica salvación contra las maquinas de cafe. (La pista se encuentra en el laberinto de carpetas en un usuario cuyos digitos suman 10)",310315,100
+Wuhan,4,gm,"Las maquinas de cafe no te ven capaz de programar una página web en html y creen saber que ni de coña superas esta prueba, para demostrarles tus conocimientos del html entra en la página web del servidor con la IP antes proporcionada i encuentra el codigo oculto.",563627,200
+Wuhan,5,gs,Necesitamos obtener un codigo que desactivará al fin las maquinas de cafe de una vez por todas: Este se puede optener mediante la suma de todos los múltiplos de 7 del 1 hasta el 100000.,714264285,200
+PARIS,1,tothom,"Durant el confinament les màquines de cafè tenen més vida que mai per culpa súper estimat Coronavirus. 
+El cafè té un perill molt important que eren les infusions, més naturals i no contenien droga i així que tots els granets de café volen fer un complot contra les infusions. 
+Els cafès tenen ganes de diversió i s'han posat a crear la primera prova.
+Aquesta consisteix a descobrir on es troba el codi amagat dins de la màquina virtual. IP: 40.113.120.115
+
+usuari1 fins el usuari10
+Contrasenya: Patata1.
+Ei recordeu que no tot és el que sembla i que el més fàcil de vegades funciona!
+",041209,150
+PARIS,2,tothom,"Ens trobem en un cas molt excepcional perquè heu aconseguit superar la  prova. També heu demostrat tenir molta energia i molta vista. 
+Ara només cal demostrar si teniu una bona astúcia. Et donem la següent paraula: CAFÈ i a través d'aquest mot has d'aconseguir treure 4 números. 
+Recorda que tot té un ordre alfabètic.",3165,100
+PARIS,3,gm,"Merda! La nostra cafeïna pot deixar d'existir perquè les infusions també poden donar energia. 
+Però creiem que la següent prova us farà falta una mica de vista i no estar adormits. 
+En el directori /home/ubuntu/La cafetera trobeu les ordres i les imatges. 
+PRIMER DE TOT, ABANS DE FER QUALSEVOL COSA HEU DE LLEGIR LES ORDRES PER SABER QUE HAS DE FER. 
+Les imatges i les ordres les podeu descarregar amb el filezilla. 
+A la IP trobeu la pàgina web creada i descarrega-la en versió .html per així poder editar-la i afegir les imatges.
+",7369,200
+PARIS,4,gs,"Merda! La nostra cafeïna pot deixar d'existir perquè les infusions també poden donar energia. 
+Però creiem que la següent prova us farà falta una mica de vista i no estar adormits. 
+Entrar a la màquina amb la IP donada al principi (usuaris de l’1 al 10 amb contrasenya Patata1.) i executar la base de dades cafee. 
+Un cop executada heu de fer un select mostrant la mitjana del salari de tots els treballadors sense decimals (floor). 
+Per entrar dins de mysql has d'entrar amb: mysql -u (nom user1...user10) -p amb password Patata1. (punt inclós). 
+1. show databases; 
+2.use cafee; 
+3. per provar si hi és fer select * from treballadors i després trobar el codi que es fa amb la pregunta d'abans.
+",323605,200
+PARIS,5,tothom,"Es veu que la nostra cafeïna no us fa aturar així que necessitem veure si sense la nostra droga podeu seguir fent exercici. 
+L'última prova consisteix a gravar-vos en un vídeo fent 10 squats (sentadillas).",444444,100
+BERLIN,1,tothom,"Des de fa molt de temps hi ha una rivalitat entre el clan Nespresso i el clan Nescafé. Aquest últim ha iniciat una guerra contra l'altre clan, per aquest motiu el clan Nespresso ens ha demanat que els ajudem a acabar amb la tirania dels Nescafé. El primer que necessitem és saber el codi per desbloquejar la porta principal del seu refugi secret on hi ha molta informació sobre ells, per aquest motiu necessitem que realitzis la següent missió:Connectar-se a un servidor mitjançant una aplicació de control remot(rdp) i buscar el codi  Ip: 172.24.7.6   Usuari :ProvesIso  Constrasenya: Patata12",45345,100
+BERLIN,2,tothom,"Gràcies a la teva ajuda ens em pogut endinsar en el seu refugi, però em vist que hi ha un guardia vigilant la següent porta, i ens ha dit que l'haviem de guanyar en el seu joc preferit si voliem continuar avançant. Nosaltres no tenim cap especialista en videojocs. Ens pots ajudar a guanyar-lo? . Arriba a 1000 punts en el joc del dinosaure i et donarà el codi automaticament. 172.24.7.4",435345353,100
+BERLIN,3,tothom,"Heu aconseguit guanyar al guardia en el seu propi joc. Molt bona feina !! El següent pas és obrir la caixa forta. Per esbrinar el codi heu de buscar el codi amagat en el codi font del joc del dinousaure. Bona sort !
+                                     ",228760,100
+BERLIN,4,tothom,"Ja tenim el codi final !! Ja podem obrir la seva caixa forta!! Però espera ...... Està buida !! Es veu que hi havia un espia infiltrat, el qual és expert en gimnàsia i en l'últim moment s'ha emportat tot el contingut de la caixa forta necessitem que el derrotis per acoseguir la clau per destruir el clan Nescafé.  Realitza una voltereta endavant. ",565656,200
