@@ -1,22 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-hday és el joc del Hacking Day.
-Aquest joc consisteix en superar una serie de proves.
-Les proves estan organitzades en reptes.
-Per superar cada prova s'ha d'indicar un codi correcte.
-
-L'arquitectura de l'aplicació és en capes:
-- Presentació: interacció amb l'usuari
-- Lògica (de negoci): nucli de l'aplicació.
-- Dades + Fitxers: interacció amb el SGBD i els fitxers
-  - Dins de la capa de DADES s'utilitza el patró DAO
-Per cadascuna de les capes hi ha un mòdul amb el nom adient.
-
-Per simplificar, la verificació de les dades la realitzarà l'SBGD.
-"""
-
 from presentacio.general import mostrar_menu_principal, mostrar_capcalera, demanar_intro
 from presentacio.errors import mostrar_error_control_c
 from logica.administracio import administrar
