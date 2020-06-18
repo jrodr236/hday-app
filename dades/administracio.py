@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions de la capa de dades relacionades amb l'administració de les taules i la base de dades
-"""
 import logica.entitats
 from logica import constants
 from . import usuari_dao

@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions de la capa de presentació relacionades amb l'administració de les dades i els fitxers
-"""
-
 from typing import List
 
 from dades import usuari_dao
@@ -41,11 +37,7 @@ def mostrar_menu_administracio():
     return opcio
 
 
-def demanar_ruta_fitxer():
-    """
-    Demana a l'usuari la ruta del fitxer CSV per importar les dades
-    :return:
-    """
+def demanar_ruta_csv_per_importar_dades():
     print("El format de les files del fitxer per carregar les proves ha de ser:")
     print("nom prova,ordre,tipus_usuari(NULL/gm/gs),enunciat,codi,puntuacio")
     print()
@@ -54,21 +46,12 @@ def demanar_ruta_fitxer():
 
 
 def mostrar_error_ruta_fitxer():
-    """
-    Mostra l'error indicant que el fitxer no es troba
-    :return:
-    """
     print("No es troba cap fitxer en aquesta ruta.")
     print()
     demanar_intro()
 
 
 def mostrar_gestio_entitat(identificador: str) -> str:
-    """
-    Menú que permet gestionar les entitats (logica/entitats.py)
-    :param identificador:
-    :return:
-    """
     print("Gestió d'una entitat ({})".format(identificador))
     print("---------------")
     print("M: Mostrar atributs")
@@ -89,10 +72,6 @@ def mostrar_gestio_entitat(identificador: str) -> str:
 
 
 def mostrar_repte(repte: Repte):
-    """
-    Mostra les dades d'un repte
-    :param repte: repte del qual es mostraran les proves
-    """
     print("Atributs del repte")
     print("------------------")
     print("Nom: {}".format(repte.nom))
@@ -106,13 +85,7 @@ def mostrar_repte(repte: Repte):
     print("")
 
 
-def canviar_atribut(nom_valor, valor_actual):
-    """
-    Permet canviar el valor d'un atribut d'una entitat
-    :param nom_valor: nom de l'atribut a modificar
-    :param valor_actual: valor actual de l'atribut a modificar
-    :return: el valor modificat, o el mateix valor si no ha canviat
-    """
+def canviar_atribut_de_entitat(nom_valor, valor_actual):
     print(nom_valor)
     print("Valor actual: {}".format(valor_actual))
     nou_valor = input("Nou valor (ENTER per no canviar): ")
@@ -122,13 +95,7 @@ def canviar_atribut(nom_valor, valor_actual):
     return nou_valor
 
 
-def canviar_atribut_varies_linies(nom_valor, valor_actual):
-    """
-    Permet canviar el valor d'un atribut d'una entitat, fins i tot amb vàries línies de text
-    :param nom_valor: nom de l'atribut a modificar
-    :param valor_actual: valor actual de l'atribut a modificar
-    :return: el valor modificat, o el mateix valor si no ha canviat
-    """
+def canviar_atribut_de_entitat_amb_varies_linies(nom_valor, valor_actual):
     print(nom_valor)
     print("Valor actual:")
     print(valor_actual)
@@ -150,28 +117,17 @@ def canviar_atribut_varies_linies(nom_valor, valor_actual):
 
 
 def canviar_atributs_repte(repte):
-    """
-    Permet canviar els atributs d'un Repte
-    :param repte: repte en el que es podrà canviar l'atribut
-    :return: nou repte amb els atributs modificats
-    """
     print("Canviar atributs repte")
     print("----------------------")
-    nom = canviar_atribut("Nom", repte.nom)
+    nom = canviar_atribut_de_entitat("Nom", repte.nom)
     return Repte(nom)
 
 
-def canviar_atributs_usuari(usuari, tipus_usuari):
-    """
-    Permet canviar els atributs d'un Usuari
-    :param usuari: usuari en el que es podrà canviar l'atribut
-    :param tipus_usuari: lista dels tipus d'usuari existents
-    :return: nou usuari amb els atributs modificats
-    """
+def canviar_atributs_usuari(usuari, tipus_usuari_existents):
     print("Canviar atributs usuari")
     print("----------------------.")
-    nom = canviar_atribut("Nom", usuari.nom)
-    contrasenya = canviar_atribut("Contrasenya, ", usuari.contrasenya)
+    nom = canviar_atribut_de_entitat("Nom", usuari.nom)
+    contrasenya = canviar_atribut_de_entitat("Contrasenya, ", usuari.contrasenya)
     if usuari.contrasenya != contrasenya:
         # S'ha modificat la contrasenya. S'ha de tornar a demanar-la per seguretat
         contrasenya2 = input("Contrasenya (un altre cop): ")
@@ -179,8 +135,8 @@ def canviar_atributs_usuari(usuari, tipus_usuari):
             print("Les dues contrasenyes no coincideixen.")
             demanar_intro()
             return None
-    tipus_usuari.remove(constants.TOTHOM)
-    tipus = canviar_atribut("Tipus {0}".format(formatar_llista(tipus_usuari)), usuari.tipus).lower()
+    tipus_usuari_existents.remove(constants.TOTHOM)
+    tipus = canviar_atribut_de_entitat("Tipus {0}".format(formatar_llista(tipus_usuari_existents)), usuari.tipus).lower()
     if tipus == constants.TOTHOM:
         print("Tipus d'usuari incorrecte.")
         demanar_intro()
@@ -189,17 +145,11 @@ def canviar_atributs_usuari(usuari, tipus_usuari):
     return usuari
 
 
-def mostrar_proves(proves: List[Prova], indicar_repte=False, crear=False):
-    """
-    Mostra un llistat de proves
-    :param proves: proves a mostrar
-    :param indicar_repte: Cert si s'ha de mostrar el repte de les proves
-    :param crear: Cert si s'ha de mostrar la opció de crear un nou repte
-    """
+def mostrar_proves(proves: List[Prova], mostrar_repte=False, permetre_crear_repte=False):
     print("Proves")
     print("------")
     i = 1
-    if indicar_repte:
+    if mostrar_repte:
         for p in proves:
             print("{}. {} - Prova {}".format(i, p.repte.nom, p.ordre))
             i = i + 1
@@ -207,17 +157,13 @@ def mostrar_proves(proves: List[Prova], indicar_repte=False, crear=False):
         for p in proves:
             print("{}. Prova {}".format(i, p.ordre))
             i = i + 1
-    if crear:
+    if permetre_crear_repte:
         print("C. Crear nova prova")
     print("S. Sortir")
     print()
 
 
 def mostrar_proves_superades(proves_superades: List[ProvaSuperada]):
-    """
-    Mostra un llistat de proves superades
-    :param proves_superades: proves superades a mostrar
-    """
     print("Proves superades")
     print("----------------")
     i = 1
@@ -229,11 +175,7 @@ def mostrar_proves_superades(proves_superades: List[ProvaSuperada]):
     print()
 
 
-def mostrar_prova(prova):
-    """
-    Mostra els atributs d'una prova
-    :param prova: prova per mostrar
-    """
+def mostrar_atributs_prova(prova):
     print("Atributs de la prova")
     print("--------------------")
     print("Repte: {}".format(prova.repte.nom))
@@ -248,11 +190,7 @@ def mostrar_prova(prova):
     print("")
 
 
-def mostrar_prova_superada(prova_superada):
-    """
-    Mostra els atributs d'una prova superada
-    :param prova_superada: prova superada per mostrar
-    """
+def mostrar_atributs_prova_superada(prova_superada):
     print("Atributs de la prova superada")
     print("-----------------------------")
     print("Data: {}".format(prova_superada.data))
@@ -265,11 +203,6 @@ def mostrar_prova_superada(prova_superada):
 
 
 def escollir_prova(proves: List[Prova]):
-    """
-    Permet escollir una prova
-    :param proves: llistat de proves per escollir-ne una
-    :return: prova escollida
-    """
     while True:
         seleccio = input("Escull el número de prova: ")
         print()
@@ -296,11 +229,6 @@ def escollir_prova(proves: List[Prova]):
 
 
 def escollir_prova_superada(proves_superades: List[ProvaSuperada]):
-    """
-    Permet escollir una prova superada
-    :param proves_superades: llistat de proves superades per escollir-ne una
-    :return: prova superada escollida
-    """
     while True:
         seleccio = input("Escull el número de prova superada: ")
         print()
@@ -324,11 +252,7 @@ def escollir_prova_superada(proves_superades: List[ProvaSuperada]):
         return prova_superada_escollida
 
 
-def demanar_nova_prova():
-    """
-    Demana els atributs per crear una nova prova
-    :return: prova amb els atributs indicats
-    """
+def demanar_atributs_nova_prova():
     print("Crear nova prova")
     print("---------------")
     print("Introdueix els atributs")
@@ -354,11 +278,7 @@ def demanar_nova_prova():
     return prova
 
 
-def demanar_nova_prova_superada():
-    """
-    Demana els atributs per crear una nova prova superada
-    :return: prova superada amb els atributs indicats
-    """
+def demanar_atributs_nova_prova_superada():
     print("Crear nova prova superada")
     print("-------------------------")
     print("Introdueix els atributs")
@@ -373,11 +293,7 @@ def demanar_nova_prova_superada():
     return prova_superada
 
 
-def demanar_nou_repte():
-    """
-    Demana els atributs per crear un nou Repte
-    :return: el nou repte creat
-    """
+def demanar_atributs_nou_repte():
     print("Crear nou repte")
     print("---------------")
     print("Introdueix els atributs")
@@ -386,11 +302,7 @@ def demanar_nou_repte():
     return repte
 
 
-def demanar_nou_usuari(tipus_usuari):
-    """
-    Demana els atributs per crear un nou Usuari
-    :return: el nou repte creat. None si no s'ha creat.
-    """
+def demanar_atributs_nou_usuari(tipus_usuari):
     print("Crear nou usuari")
     print("----------------")
     print("Introdueix els atributs")
@@ -423,49 +335,35 @@ def formatar_llista(llista):
 
 
 def canviar_atributs_prova(prova):
-    """
-    Permet canviar els atributs d'una Prova
-    :param prova: prova de la que es poden canviar els seus atributs
-    :return: una prova amb els atributs modificats
-    """
     print("Canviar atributs prova")
     print("----------------------")
-    nom_repte = canviar_atribut("Repte", prova.repte.nom)
+    nom_repte = canviar_atribut_de_entitat("Repte", prova.repte.nom)
     repte = Repte(nom_repte)
-    ordre = canviar_atribut("Ordre", prova.ordre)
+    ordre = canviar_atribut_de_entitat("Ordre", prova.ordre)
 
     llista_tipus_usuari = usuari_dao.obtenir_tipus_usuari()
-    tipus_usuari = canviar_atribut("Tipus usuari " + formatar_llista(llista_tipus_usuari), prova.tipus_usuari)
+    tipus_usuari = canviar_atribut_de_entitat("Tipus usuari " + formatar_llista(llista_tipus_usuari), prova.tipus_usuari)
 
-    enunciat = canviar_atribut_varies_linies("Enunciat", prova.enunciat)
-    codi = canviar_atribut("Codi", prova.codi)
-    puntuacio = canviar_atribut("Puntuacio", prova.puntuacio)
+    enunciat = canviar_atribut_de_entitat_amb_varies_linies("Enunciat", prova.enunciat)
+    codi = canviar_atribut_de_entitat("Codi", prova.codi)
+    puntuacio = canviar_atribut_de_entitat("Puntuacio", prova.puntuacio)
     return Prova(repte, ordre, tipus_usuari, enunciat, codi, puntuacio)
 
 
 def canviar_atributs_prova_superada(prova_superada):
-    """
-    Permet canviar els atributs d'una Prova superada
-    :param prova_superada: prova superada de la que es poden canviar els seus atributs
-    :return: una prova superada amb els atributs modificats
-    """
     print("Canviar atributs prova superada")
     print("-------------------------------")
-    data = canviar_atribut("Data (any/mes/dia hora:minuts:segons)", prova_superada.data)
-    nom_repte = canviar_atribut("Repte", prova_superada.prova.repte.nom)
+    data = canviar_atribut_de_entitat("Data (any/mes/dia hora:minuts:segons)", prova_superada.data)
+    nom_repte = canviar_atribut_de_entitat("Repte", prova_superada.prova.repte.nom)
     repte = Repte(nom_repte)
-    ordre = canviar_atribut("Ordre", prova_superada.prova.ordre)
+    ordre = canviar_atribut_de_entitat("Ordre", prova_superada.prova.ordre)
     prova = Prova(repte, ordre, "", "", "", 0)
-    nom_usuari = canviar_atribut("Usuari", prova_superada.usuari.nom)
+    nom_usuari = canviar_atribut_de_entitat("Usuari", prova_superada.usuari.nom)
     usuari = Usuari(nom_usuari, "", "")
     return ProvaSuperada(data, prova, usuari)
 
 
 def mostrar_usuaris(usuaris: List[Usuari]):
-    """
-    Mostra un llistat d'usuaris
-    :param usuaris: usuaris a mostrar
-    """
     print("Usuaris")
     print("-------")
     i = 1
@@ -478,11 +376,6 @@ def mostrar_usuaris(usuaris: List[Usuari]):
 
 
 def escollir_usuari(usuaris: List[Usuari]):
-    """
-    Permet escollir un usuari
-    :param usuaris: llistat d'usuaris per escollir-ne un
-    :return: usuari escollit
-    """
     while True:
         seleccio = input("Escull el número de l'usuari: ")
         print()
@@ -508,11 +401,7 @@ def escollir_usuari(usuaris: List[Usuari]):
         return usuari_escollit
 
 
-def mostrar_usuari(usuari):
-    """
-    Mostra els atributs d'un usuari
-    :param usuari: usuari a mostrar
-    """
+def mostrar_atributs_usuari(usuari):
     print("Atributs de l'usuari")
     print("--------------------")
     print("Nom: {}".format(usuari.nom))

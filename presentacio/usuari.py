@@ -13,10 +13,6 @@ from .general import demanar_intro
 
 
 def existeix_usuari():
-    """
-    Pregunta si l'usuari ja existeix o se n'ha de crear un de nou.
-    :return:
-    """
     te_usuari = input("Tens usuari? (S/N): ").lower()
     print()
     if te_usuari not in ["s", "n"]:
@@ -27,11 +23,7 @@ def existeix_usuari():
         return te_usuari == "s"
 
 
-def demanar_registre(tipus_usuari):
-    """
-    Demana les dades per registrar un nou usuari
-    :return: nom i contrasenya per crear un nou usuari
-    """
+def demanar_registre_de_nou_usuari(tipus_usuari):
     print("Si us plau, introdueix les credencials per al nou usuari.")
     print()
     # No es permet registrar un nou usuari administrador
@@ -56,10 +48,6 @@ def demanar_registre(tipus_usuari):
 
 
 def demanar_login():
-    """
-    Demana les dades d'un usuari per fer login
-    :return: el nom i la contrasenya indicades
-    """
     print("Si us plau, introdueix les teves credencials.")
     print()
     nom = input("Nom: ")
@@ -69,9 +57,5 @@ def demanar_login():
 
 
 def mostrar_error_verificar_usuari():
-    """
-    Mostra un error que indica que l'usuari no s'ha pogut verificar correctament.
-    :return:
-    """
     print("Usuari incorrecte.")
     print()

@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions que implementen el patró DAO per la taula Repte
-"""
 
 from typing import List
 from dades.helper import obtenir_connexio, commit
@@ -10,10 +7,7 @@ from dades.prova_dao import obtenir_proves_de_repte
 from logica.entitats import Repte, Usuari
 
 
-def obtenir_reptes(usuari: Usuari = None) -> List[Repte]:
-    """
-    Obté els reptes i també les proves associades
-    """
+def obtenir_reptes_i_les_seves_proves(usuari: Usuari = None) -> List[Repte]:
     conn = obtenir_connexio()
 
     cursor = conn.cursor()
@@ -40,10 +34,7 @@ def obtenir_reptes(usuari: Usuari = None) -> List[Repte]:
     return reptes
 
 
-def desar_reptes(reptes: List[Repte]) -> None:
-    """
-    Desa els reptes i també les proves associades
-    """
+def desar_reptes_i_les_seves_proves(reptes: List[Repte]) -> None:
     conn = obtenir_connexio()
 
     cursor = conn.cursor()

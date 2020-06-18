@@ -10,9 +10,5 @@ from logica.administracio import importar_proves_csv
 
 eliminar_taules()
 crear_taules()
-#importar_proves_csv("stan.csv")
-#importar_proves_csv("grup-a.csv")
-#importar_proves_csv("grup-b.csv")
-#importar_proves_csv("simulacre1.csv")
-#importar_proves_csv("simulacre2.csv")
-importar_proves_csv("hday.csv")
+
+importar_proves_csv("michael.csv")

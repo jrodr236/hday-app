@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions de la capa de lògica de negoci relacionades amb el joc de Hacking Day.
-"""
 
 from logica.entitats import ProvaJaSuperada
 from presentacio.general import *
@@ -11,14 +8,10 @@ from dades import prova_dao, repte_dao, usuari_dao
 
 
 def resoldre_reptes(usuari):
-    """
-    Funció que permet jugar al joc, que consisteix en resoldre reptes, prova a prova.
-    :param usuari: usuari que utilitza l'aplicació
-    """
     while True:
         usuari_dao.obtenir_punts(usuari)
         mostrar_capcalera(usuari)
-        reptes = repte_dao.obtenir_reptes(usuari)
+        reptes = repte_dao.obtenir_reptes_i_les_seves_proves(usuari)
         mostrar_reptes(reptes, False, True)
         repte = escollir_repte(reptes)
 
@@ -31,20 +24,15 @@ def resoldre_reptes(usuari):
 
 
 def respondre_prova(usuari, repte):
-    """
-    Permet a l'usuari resoldre la següent prova no resolta del repte actual
-    :param usuari: usuari que utilitza l'aplicació
-    :param repte: repte que es vol resoldre
-    """
     while True:
         usuari_dao.obtenir_punts(usuari)
         mostrar_capcalera(usuari)
         # S'actualitzen les proves per si hi ha hagut alguna actualització, per exemple, si s'ha resolt alguna prova
         # en un altre execució del joc.
         prova_dao.obtenir_proves_de_repte(repte, usuari)
-        prova_per_resoldre = repte.dona_prova_sense_resoldre()
-        mostrar_proves_per_superar(repte)
-        codi = demanar_codi(repte)
+        prova_per_resoldre = repte.dona_primera_prova_sense_resoldre()
+        mostrar_proves_per_superar_d_un_repte(repte)
+        codi = demanar_codi_per_superar_prova(repte)
 
         if codi == "":
             break

@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Dades de connexió amb l'SGBD
-"""
 
 from typing import Dict
 

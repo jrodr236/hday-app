@@ -14,11 +14,6 @@ from .general import netejar_pantalla
 
 
 def mostrar_ranking(ranking):
-    """
-    Mostra els usuaris de l'aplicació amb millor puntuació
-    :param ranking: ranking a mostrar
-    :return:
-    """
     netejar_pantalla()
     print("Ranking ({})".format(datetime.now().strftime('%H:%M:%S')))
     print("-------")
@@ -40,11 +35,6 @@ def mostrar_ranking(ranking):
 
 
 def mostrar_esdeveniments(proves_superades: List[ProvaSuperada]):
-    """
-    Mostra els últims esdeveniments, és a dir, les últimes proves superades per tots els usuaris que estan jugant
-    al joc, ja sigui en aquest procés o en qualsevol altra instància de l'aplicació.
-    :param proves_superades: últimes proves superades
-    """
     netejar_pantalla()
     print("Últims esdeveniments ({})".format(datetime.now().strftime('%H:%M:%S')))
     print("--------------------")

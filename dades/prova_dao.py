@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions que implementen el patró DAO per la taula Prova
-"""
 
 from datetime import datetime
 from typing import List

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 """
-Funcions que implementen el patró DAO pel ranking.
 No hi ha taula Ranking, però es pot obtenir a partir de JOINs entre diverses taules.
 """
 

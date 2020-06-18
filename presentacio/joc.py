@@ -7,14 +7,9 @@ Funcions de la capa de presentació relacioades amb el joc de Hacking Day.
 from presentacio.general import demanar_intro
 
 
-def demanar_codi(repte):
-    """
-    Demana un codi per superar una prova d'un repte
-    :param repte: repte del qual s'ha de superar la primera prova sense resoldre
-    :return: codi indicat
-    """
+def demanar_codi_per_superar_prova(repte):
     codi = ""
-    if repte.repte_superat():
+    if repte.esta_el_repte_superat():
         demanar_intro()
     else:
         codi = input("Codi (ENTER per sortir): ")
@@ -24,10 +19,6 @@ def demanar_codi(repte):
 
 
 def mostrar_codi_correcte(codi_correcte):
-    """
-    Indica que el codi introduït és correcte
-    :param codi_correcte: True si el codi és correcte
-    """
     if codi_correcte:
         print("OK. Codi correcte.")
     else:
@@ -36,19 +27,12 @@ def mostrar_codi_correcte(codi_correcte):
 
 
 def mostrar_prova_ja_superada():
-    """
-    Mostra que la prova ja s'havia superat en una altra instància enb execució d'aquesta aplicació.
-    """
     print("Aquesta prova ja havia estat superada.")
     print("ATENCIÓ: no facis trampes!")
     demanar_intro()
 
 
-def mostrar_proves_per_superar(repte):
-    """
-    Mostra les proves superades i la primera prova per superar d'un repte
-    :param repte: repte del qual s'han de mostrar les proves
-    """
+def mostrar_proves_per_superar_d_un_repte(repte):
     titol = "Repte: {}".format(repte.nom)
     print(titol)
     print("-" * len(titol))

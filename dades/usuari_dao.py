@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions que implementen el patró DAO per la taula Usuari
-"""
 from typing import List
 
 from logica.claus import CLAU_CONTRASENYA
@@ -26,10 +23,7 @@ def crear(usuari: Usuari) -> None:
     commit(conn, cursor)
 
 
-def verificar(nom, contrasenya):
-    """
-    Verifica l'autenticació de l'usuari
-    """
+def autenticar(nom, contrasenya):
     conn = obtenir_connexio()
 
     cursor = conn.cursor()

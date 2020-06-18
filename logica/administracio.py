@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions de la capa de lògica de negoci relacionades amb l'administració de l'aplicació
-"""
 
 from mysql.connector.errors import IntegrityError, DataError
 
@@ -21,7 +18,7 @@ def administrar():
     Funció principal d'administració de l'aplicació
     """
     while True:
-        mostrar_capcalera(admin=True)
+        mostrar_capcalera(es_administrador=True)
         opcio = mostrar_menu_administracio()
         if opcio is None:
             continue
@@ -45,19 +42,16 @@ def administrar():
 
 
 def importar_proves_csv(ruta=None):
-    """
-    Importar proves i reptes d'un fitxer CSV
-    """
     if ruta is None:
-        ruta = demanar_ruta_fitxer()
+        ruta = demanar_ruta_csv_per_importar_dades()
 
-    if not ruta_correcta(ruta):
+    if not es_ruta_correcta(ruta):
         mostrar_error_ruta_fitxer()
         return
 
     try:
-        reptes = llegir_fitxer(ruta)
-        repte_dao.desar_reptes(reptes)
+        reptes = llegir_fitxer_csv(ruta)
+        repte_dao.desar_reptes_i_les_seves_proves(reptes)
         mostrar_accio_realitzada()
     except Exception as e:
         mostrar_error_lectura_fitxer(e)
@@ -65,17 +59,13 @@ def importar_proves_csv(ruta=None):
 
 
 def gestionar_prova(prova):
-    """
-    Punt d'entrada al CRUD d'una Prova
-    :param prova: Prova a gestionar
-    """
     while True:
-        mostrar_capcalera(admin=True)
+        mostrar_capcalera(es_administrador=True)
         opcio = mostrar_gestio_entitat(prova.repte.nom + " - Prova " + str(prova.ordre))
 
         if opcio == "m":
-            mostrar_capcalera(admin=True)
-            mostrar_prova(prova)
+            mostrar_capcalera(es_administrador=True)
+            mostrar_atributs_prova(prova)
         if opcio == "c":
             try:
                 nom_repte_antic = prova.repte.nom
@@ -102,18 +92,14 @@ def gestionar_prova(prova):
 
 
 def gestionar_prova_superada(prova_superada):
-    """
-    Punt d'entrada al CRUD d'una Prova superada
-    :param prova_superada: Prova superada a gestionar
-    """
     while True:
-        mostrar_capcalera(admin=True)
+        mostrar_capcalera(es_administrador=True)
         opcio = mostrar_gestio_entitat(prova_superada.prova.repte.nom + " - Prova " + str(prova_superada.prova.ordre) +
                                        ", " + prova_superada.usuari.nom)
 
         if opcio == "m":
-            mostrar_capcalera(admin=True)
-            mostrar_prova_superada(prova_superada)
+            mostrar_capcalera(es_administrador=True)
+            mostrar_atributs_prova_superada(prova_superada)
         if opcio == "c":
             try:
                 nom_repte_antic = prova_superada.prova.repte.nom
@@ -138,11 +124,8 @@ def gestionar_prova_superada(prova_superada):
 
 
 def crear_prova():
-    """
-    Crea una nova prova
-    """
     try:
-        prova = demanar_nova_prova()
+        prova = demanar_atributs_nova_prova()
         prova_dao.crear(prova)
         mostrar_accio_realitzada()
     except (DataError, ValueError):
@@ -154,11 +137,8 @@ def crear_prova():
 
 
 def crear_prova_superada():
-    """
-    Crea una nova prova superada
-    """
     try:
-        prova_superada = demanar_nova_prova_superada()
+        prova_superada = demanar_atributs_nova_prova_superada()
         prova_superada_dao.crear(prova_superada)
         mostrar_accio_realitzada()
     except (DataError, ValueError):
@@ -170,11 +150,8 @@ def crear_prova_superada():
 
 
 def gestionar_proves():
-    """
-    Permet escollir una prova per fer-hi el CRUD
-    """
     while True:
-        mostrar_capcalera(admin=True)
+        mostrar_capcalera(es_administrador=True)
         proves = prova_dao.obtenir()
         mostrar_proves(proves, True, True)
         prova = escollir_prova(proves)
@@ -183,18 +160,15 @@ def gestionar_proves():
         elif prova == "s":
             return
         elif prova == "c":
-            mostrar_capcalera(admin=True)
+            mostrar_capcalera(es_administrador=True)
             crear_prova()
         else:
             gestionar_prova(prova)
 
 
 def gestionar_proves_superades():
-    """
-    Permet escollir una _prova_superada_ per fer-hi el CRUD
-    """
     while True:
-        mostrar_capcalera(admin=True)
+        mostrar_capcalera(es_administrador=True)
         proves_superades = prova_superada_dao.obtenir()
         mostrar_proves_superades(proves_superades)
         prova_superada = escollir_prova_superada(proves_superades)
@@ -203,23 +177,19 @@ def gestionar_proves_superades():
         elif prova_superada == "s":
             return
         elif prova_superada == "c":
-            mostrar_capcalera(admin=True)
+            mostrar_capcalera(es_administrador=True)
             crear_prova_superada()
         else:
             gestionar_prova_superada(prova_superada)
 
 
 def gestionar_repte(repte: Repte) -> None:
-    """
-    Punt d'entrada al CRUD d'un Repte
-    :param repte: Repte a gestionar
-    """
     while True:
-        mostrar_capcalera(admin=True)
+        mostrar_capcalera(es_administrador=True)
         opcio = mostrar_gestio_entitat(repte.nom)
 
         if opcio == "m":
-            mostrar_capcalera(admin=True)
+            mostrar_capcalera(es_administrador=True)
             mostrar_repte(repte)
         elif opcio == "c":
             try:
@@ -247,11 +217,8 @@ def gestionar_repte(repte: Repte) -> None:
 
 
 def crear_repte():
-    """
-    Crea un nou repte
-    """
     try:
-        repte = demanar_nou_repte()
+        repte = demanar_atributs_nou_repte()
         repte_dao.crear(repte)
         mostrar_accio_realitzada()
     except (DataError, ValueError):
@@ -260,12 +227,9 @@ def crear_repte():
 
 
 def gestionar_reptes():
-    """
-    Permet escollir un repte per fer-hi el CRUD
-    """
     while True:
-        mostrar_capcalera(admin=True)
-        reptes = repte_dao.obtenir_reptes()
+        mostrar_capcalera(es_administrador=True)
+        reptes = repte_dao.obtenir_reptes_i_les_seves_proves()
         mostrar_reptes(reptes, True)
         repte = escollir_repte(reptes, True)
 
@@ -274,18 +238,15 @@ def gestionar_reptes():
         elif repte == "s":
             return
         elif repte == "c":
-            mostrar_capcalera(admin=True)
+            mostrar_capcalera(es_administrador=True)
             crear_repte()
         else:
             gestionar_repte(repte)
 
 
 def gestionar_usuaris():
-    """
-    Permet escollir un usuari per fer-hi el CRUD
-    """
     while True:
-        mostrar_capcalera(admin=True)
+        mostrar_capcalera(es_administrador=True)
         usuaris = usuari_dao.obtenir()
         mostrar_usuaris(usuaris)
         usuari = escollir_usuari(usuaris)
@@ -295,24 +256,20 @@ def gestionar_usuaris():
         elif usuari == "s":
             return
         elif usuari == "c":
-            mostrar_capcalera(admin=True)
+            mostrar_capcalera(es_administrador=True)
             crear_usuari()
         else:
             gestionar_usuari(usuari)
 
 
 def gestionar_usuari(usuari: Usuari) -> None:
-    """
-    Punt d'entrada al CRUD d'un Usuari
-    :param usuari: Usuari a gestionar
-    """
     while True:
-        mostrar_capcalera(admin=True)
+        mostrar_capcalera(es_administrador=True)
         opcio = mostrar_gestio_entitat(usuari.nom)
 
         if opcio == "m":
-            mostrar_capcalera(admin=True)
-            mostrar_usuari(usuari)
+            mostrar_capcalera(es_administrador=True)
+            mostrar_atributs_usuari(usuari)
         elif opcio == "c":
             try:
                 nom_antic = usuari.nom
@@ -336,12 +293,9 @@ def gestionar_usuari(usuari: Usuari) -> None:
 
 
 def crear_usuari():
-    """
-    Crea un nou usuari
-    """
     try:
         tipus_usuari = usuari_dao.obtenir_tipus_usuari()
-        usuari = demanar_nou_usuari(tipus_usuari)
+        usuari = demanar_atributs_nou_usuari(tipus_usuari)
         if usuari is not None:
             usuari_dao.crear(usuari)
             mostrar_accio_realitzada()

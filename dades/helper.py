@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions d'ajuda de connexió amb la base de dades
-"""
 
 import mysql.connector
 

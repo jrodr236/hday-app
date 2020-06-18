@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions que interaccionen amb el sistema de fitxers
-"""
 
 import csv
 import os
@@ -10,20 +7,11 @@ import os
 from logica.entitats import Repte, Prova
 
 
-def ruta_correcta(ruta):
-    """
-    Verifica si existeix aquesta ruta
-    :param ruta: ruta a verificar
-    """
+def es_ruta_correcta(ruta):
     return os.path.exists(ruta)
 
 
-def llegir_fitxer(ruta):
-    """
-    Llegeix el fitxer CSV i li extreu els reptes i proves
-    :param ruta: fitxer CSV a llegir
-    :return: conjunt de reptes, amb proves associades, que s'han extret del fitxer
-    """
+def llegir_fitxer_csv(ruta):
     f = open(ruta, 'r+')
 
     reptes = []
