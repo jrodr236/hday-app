@@ -36,10 +36,12 @@ mysql -u root
 
 CREATE DATABASE hday;
 USE hday;
-CREATE USER 'hday'@'localhost' IDENTIFIED BY 'kmnasidfy';
+CREATE USER 'hday'@'localhost' IDENTIFIED BY '**********';
 GRANT ALL PRIVILEGES ON * . * TO 'hday'@'localhost';
 FLUSH PRIVILEGES;
 EXIT
+
+# La contrasenya utilitzada a ********** ha de configurar-se també al fitxer logica/claus.py 
 
 /usr/sbin/adduser hday
 
@@ -77,7 +79,7 @@ Permetre connexions remotes:
 mysql -u root
 
 USE hday;
-CREATE USER 'hday-remote'@'%' IDENTIFIED BY '9fjdm4l58f';
+CREATE USER 'hday-remote'@'%' IDENTIFIED BY '**********';
 GRANT ALL PRIVILEGES ON * . * TO 'hday-remote'@'%';
 FLUSH PRIVILEGES;
 EXIT
@@ -111,10 +113,12 @@ mysql -u root
 
 CREATE DATABASE hday;
 USE hday;
-CREATE USER 'hday'@'localhost' IDENTIFIED BY 'kmnasidfy';
+CREATE USER 'hday'@'localhost' IDENTIFIED BY '**********';
 GRANT ALL PRIVILEGES ON * . * TO 'hday'@'localhost';
 FLUSH PRIVILEGES;
 EXIT
+
+# La contrasenya utilitzada a ********** ha de configurar-se també al fitxer logica/claus.py
 
 /usr/sbin/adduser hday
 
@@ -155,7 +159,7 @@ Permetre connexions remotes:
 mysql -u root
 
 USE hday;
-CREATE USER 'hday-remote'@'%' IDENTIFIED BY '9fjdm4l58f';
+CREATE USER 'hday-remote'@'%' IDENTIFIED BY '**********';
 GRANT ALL PRIVILEGES ON * . * TO 'hday-remote'@'%';
 FLUSH PRIVILEGES;
 EXIT
