@@ -1,15 +1,9 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions de la capa de presentació relacionades amb la monitorització del joc, és a dir, el rànking i els últims
-esdeveniments.
-"""
-
+from datetime import datetime
 from typing import List
 
-from datetime import datetime
-
-from hday.logica.entitats import ProvaSuperada
+from logica.entitats import ProvaSuperada
 from .general import netejar_pantalla
 
 
@@ -26,7 +20,7 @@ def mostrar_ranking(ranking):
         print("{}. {}".format(i, nom), end="")
         print("." * (20 - (len(nom) + len(str(punts)))), end="")
         print(punts, end="")
-        print(" - "+tipus, end="")
+        print(" - " + tipus, end="")
         print(" ({})".format(data.strftime('%d/%m/%Y %H:%M:%S')))
         i = i + 1
     print()
@@ -40,6 +34,7 @@ def mostrar_esdeveniments(proves_superades: List[ProvaSuperada]):
     print("--------------------")
     for ps in proves_superades:
         print(ps.data.strftime("%d/%m/%Y %H:%M:%S"), end="")
-        print(": {} ({}) ha superat {} #{} - {} punts.".format(ps.usuari.nom, ps.usuari.tipus, ps.prova.repte.nom, ps.prova.ordre, ps.prova.puntuacio))
+        print(": {} ({}) ha superat {} #{} - {} punts.".format(ps.usuari.nom, ps.usuari.tipus, ps.prova.repte.nom,
+                                                               ps.prova.ordre, ps.prova.puntuacio))
     print()
     print("^C per sortir")

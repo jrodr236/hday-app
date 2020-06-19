@@ -24,27 +24,5 @@ def mostrar_error_format_dades():
     print("ERROR: format de dades incorrecte.")
 
 
-def mostrar_error_repte_no_existeix():
-    print("ERROR: no existeix el repte indicat.")
-
-
-def mostrar_error_integritat_prova_superada():
-    print("ERROR: error d'integritat. Pot ser que:")
-    print("- Ja existeixi una Prova Superada per aquesta prova i usuari")
-    print("- No existeixi algun dels elements associats (Repte, Prova o Usuari)")
-
-
-def mostrar_error_prova_amb_superacions():
-    print("ERROR: aquesta prova ha estat superada per algun usuari. És a dir, té proves superades associades.")
-
-
-def mostrar_error_repte_amb_proves():
-    print("ERROR: aquest repte té proves associades.")
-
-
 def mostrar_error_tipus_usuari_no_existeix():
     print("ERROR: no existeix aquest tipus d'usuari.")
-
-
-def mostrar_error_repte_ja_existeix():
-    print("ERROR: ja existeix aquest repte.")

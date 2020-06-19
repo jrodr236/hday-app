@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from typing import List
-
-from hday.logica.claus import CLAU_CONTRASENYA
-from hday.logica.entitats import Usuari
-from hday.dades.helper import obtenir_connexio, commit
+from dades.helper import obtenir_connexio, commit
+from logica.claus import CLAU_CONTRASENYA
+from logica.entitats import Usuari
 
 
 def crear(usuari: Usuari) -> None:
@@ -69,65 +67,6 @@ def obtenir_punts(usuari: Usuari) -> None:
     usuari.actualitzar_punts(puntuacio)
 
 
-def obtenir() -> List[Usuari]:
-    conn = obtenir_connexio()
-
-    cursor = conn.cursor()
-
-    query = """
-        SELECT nom, AES_DECRYPT(contrasenya, UNHEX(%s)), tipus
-        FROM Usuari
-    """
-    valors = (CLAU_CONTRASENYA,)
-
-    cursor.execute(query, valors)
-
-    resultat = cursor.fetchall()
-
-    usuaris = []
-
-    for r in resultat:
-        usuari = Usuari(r[0], r[1].decode("utf-8"), r[2])
-        usuaris.append(usuari)
-
-    commit(conn, cursor)
-
-    return usuaris
-
-
-def actualitzar(nom_antic: str, usuari: Usuari) -> None:
-    conn = obtenir_connexio()
-
-    cursor = conn.cursor()
-
-    query = """
-            UPDATE Usuari
-            SET nom = %s,
-                contrasenya = AES_ENCRYPT(%s, UNHEX(%s)),
-                tipus = %s
-            WHERE nom = %s
-        """
-    valors = (usuari.nom, usuari.contrasenya, CLAU_CONTRASENYA, usuari.tipus, nom_antic)
-    cursor.execute(query, valors)
-
-    commit(conn, cursor)
-
-
-def eliminar(usuari: Usuari) -> None:
-    conn = obtenir_connexio()
-
-    cursor = conn.cursor()
-
-    query = """
-            DELETE FROM Usuari
-            WHERE nom = %s
-        """
-    valors = (usuari.nom,)
-    cursor.execute(query, valors)
-
-    commit(conn, cursor)
-
-
 def obtenir_tipus_usuari():
     conn = obtenir_connexio()
 
@@ -150,5 +89,3 @@ def obtenir_tipus_usuari():
     commit(conn, cursor)
 
     return tipus
-
-

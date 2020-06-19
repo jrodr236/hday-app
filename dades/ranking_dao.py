@@ -5,7 +5,8 @@ No hi ha taula Ranking, però es pot obtenir a partir de JOINs entre diverses ta
 """
 
 from typing import List
-from hday.dades.helper import obtenir_connexio, commit
+
+from dades.helper import obtenir_connexio, commit
 
 
 def obtenir() -> List:

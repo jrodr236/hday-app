@@ -1,12 +1,8 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions de la capa de presentació relacionades amb la gestió dels usuaris.
-"""
-
 from getpass import getpass
 
-import hday.logica.entitats
+from logica import constants
 from . import administracio
 from .general import demanar_intro
 
@@ -29,18 +25,14 @@ def demanar_registre_de_nou_usuari(tipus_usuari):
     nom = input("Nom: ")
     contrasenya = getpass("Contrasenya: ")
     contrasenya2 = getpass("Contrasenya (un altre cop): ")
-    tipus_usuari.remove(logica.constants.ADMIN)
-    tipus_usuari.remove(logica.constants.TOTHOM)
+    tipus_usuari.remove(constants.TOTHOM)
     tipus = input("Tipus d'usuari " + administracio.formatar_llista(tipus_usuari) + ": ").lower()
     print()
     if contrasenya != contrasenya2:
         print("Les dues contrasenyes no coincideixen.")
         demanar_intro()
         return None, None, None
-    elif tipus == logica.constants.ADMIN:
-        print("No es permet registrar administradors.")
-        return None, None, None
-    elif tipus == logica.constants.TOTHOM:
+    elif tipus == constants.TOTHOM:
         print("Tipus d'usuari incorrecte.")
         return None, None, None
     return nom, contrasenya, tipus

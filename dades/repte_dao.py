@@ -2,9 +2,10 @@
 
 
 from typing import List
-from hday.dades.helper import obtenir_connexio, commit
-from hday.dades.prova_dao import obtenir_proves_de_repte
-from hday.logica.entitats import Repte, Usuari
+
+from dades.helper import obtenir_connexio, commit
+from dades.prova_dao import obtenir_proves_de_repte
+from logica.entitats import Repte, Usuari
 
 
 def obtenir_reptes_i_les_seves_proves(usuari: Usuari = None) -> List[Repte]:
@@ -59,51 +60,5 @@ def desar_reptes_i_les_seves_proves(reptes: List[Repte]) -> None:
                       prova.enunciat, prova.codi, prova.puntuacio)
 
             cursor.execute(query, valors)
-
-    commit(conn, cursor)
-
-
-def actualitzar(nom_antic: str, repte: Repte) -> None:
-    conn = obtenir_connexio()
-
-    cursor = conn.cursor()
-
-    query = """
-            UPDATE Repte
-            SET nom = %s
-            WHERE nom = %s
-        """
-    valors = (repte.nom, nom_antic)
-    cursor.execute(query, valors)
-
-    commit(conn, cursor)
-
-
-def eliminar(repte: Repte) -> None:
-    conn = obtenir_connexio()
-
-    cursor = conn.cursor()
-
-    query = """
-            DELETE FROM Repte
-            WHERE nom = %s
-        """
-    valors = (repte.nom,)
-    cursor.execute(query, valors)
-
-    commit(conn, cursor)
-
-
-def crear(repte):
-    conn = obtenir_connexio()
-
-    cursor = conn.cursor()
-
-    query = """
-            INSERT INTO Repte (nom)
-            VALUES (%s)
-        """
-    valors = (repte.nom,)
-    cursor.execute(query, valors)
 
     commit(conn, cursor)

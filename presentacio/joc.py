@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 
-"""
-Funcions de la capa de presentació relacioades amb el joc de Hacking Day.
-"""
-
-from hday.presentacio.general import demanar_intro
+from presentacio.general import demanar_intro
 
 
 def demanar_codi_per_superar_prova(repte):

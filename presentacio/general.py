@@ -3,13 +3,10 @@
 import os
 
 
-def mostrar_menu_principal(admin):
+def mostrar_menu_principal():
     print("Menú principal")
     print("--------------")
-    if admin:
-        print("A. Administrar")
-    else:
-        print("J. Jugar")
+    print("J. Jugar")
     print("R. Ranking")
     print("E. Esdeveniments")
     print("S. Sortir")
@@ -68,7 +65,7 @@ def escollir_repte(reptes, permetre_crear_repte=False):
         return repte_escollit
 
 
-def mostrar_capcalera(usuari_registrat=None, es_administrador=False):
+def mostrar_capcalera(usuari_registrat=None):
     netejar_pantalla()
     print("  _                _    _                   _             ")
     print(" | |              | |  (_)                 | |            ")
@@ -78,16 +75,13 @@ def mostrar_capcalera(usuari_registrat=None, es_administrador=False):
     print(" |_| |_|\\__,_|\\___|_|\\_\\_|_| |_|\\__, |  \\__,_|\\__,_|\\__, |")
     print("                                 __/ |               __/ |")
 
-    if es_administrador:
-        subtitulo = "[ ADMINISTRACIÓ ]"
-    else:
-        subtitulo = ""
-        if usuari_registrat is not None:
-            subtitulo = usuari_registrat.nom + " - " + str(usuari_registrat.punts) + " punts"
+    subtitol = ""
+    if usuari_registrat is not None:
+        subtitol = usuari_registrat.nom + " - " + str(usuari_registrat.punts) + " punts"
 
-    print(subtitulo, end="")
-    # for i in range(len(subtitulo), 32):
-    print(" " * (32 - len(subtitulo)), end="")
+    print(subtitol, end="")
+    # for i in range(len(subtitol), 32):
+    print(" " * (32 - len(subtitol)), end="")
 
     print("|___/               |___/ ")
     print()

@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from hday.logica import constants
-
 
 class Repte:
 
@@ -70,9 +68,6 @@ class Usuari:
 
     def actualitzar_punts(self, punts: int):
         self.punts = punts
-
-    def es_admin(self):
-        return self.tipus == constants.ADMIN
 
 
 class ProvaJaSuperada(Exception):

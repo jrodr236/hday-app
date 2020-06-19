@@ -3,7 +3,7 @@
 
 from typing import Dict
 
-from hday.logica.claus import PASSWDBD
+from logica.claus import PASSWDBD
 
 mysql_cfg: Dict[str, str] = {'host': 'localhost',
                              'user': 'hday',

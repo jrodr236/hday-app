@@ -4,7 +4,7 @@
 import csv
 import os
 
-from hday.logica.entitats import Repte, Prova
+from logica.entitats import Repte, Prova
 
 
 def es_ruta_correcta(ruta):
@@ -23,7 +23,7 @@ def llegir_fitxer_csv(ruta):
             if repte is None:
                 repte = Repte(nom_repte)
                 reptes.append(repte)
-            prova = Prova(repte, r[1], r[2], r[3], r[4], r[5], False)
+            prova = Prova(repte, int(r[1]), r[2], r[3], r[4], int(r[5]), False)
             repte.afegeix_prova(prova)
 
     f.close()

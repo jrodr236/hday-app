@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from hday.logica import constants
+from logica import constants
 # L'encriptació de les contrasenyes es realitza al MySQL
-from hday.logica.claus import CLAU_CONTRASENYA
+from logica.claus import CLAU_CONTRASENYA
 from .helper import obtenir_connexio, commit
 
 
@@ -142,19 +142,9 @@ def crear_taules():
             VALUES (%s)
         """
     cursor.executemany(query, [
-        (constants.ADMIN,),
         (constants.TOTHOM,),
         ("gm",),
         ("gs",)
     ])
 
-    query = """
-        INSERT INTO Usuari(nom, contrasenya, tipus)
-        VALUES  ("admin", AES_ENCRYPT(%s,UNHEX(%s)), %s)
-    """
-    valors = ("hday2020*", CLAU_CONTRASENYA, logica.constants.ADMIN)
-    cursor.execute(query, valors)
-
     commit(conn, cursor)
-
-

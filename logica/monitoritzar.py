@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
+
 import time
 
-import hday.dades.prova_superada_dao
-
-
-from hday.dades import ranking_dao
-from hday.presentacio.monitoritzar import mostrar_ranking, mostrar_esdeveniments
+from dades import ranking_dao, prova_superada_dao
+from presentacio.monitoritzar import mostrar_ranking, mostrar_esdeveniments
 
 
 def ranking():
@@ -21,7 +19,7 @@ def ranking():
 def esdeveniments():
     try:
         while True:
-            proves_superades = dades.prova_superada_dao.obtenir()
+            proves_superades = prova_superada_dao.obtenir_proves()
             mostrar_esdeveniments(proves_superades)
             time.sleep(5)
     except KeyboardInterrupt:
