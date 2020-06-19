@@ -9,7 +9,7 @@ from typing import List
 
 from datetime import datetime
 
-from logica.entitats import ProvaSuperada
+from hday.logica.entitats import ProvaSuperada
 from .general import netejar_pantalla
 
 

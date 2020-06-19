@@ -2,12 +2,12 @@
 
 from mysql.connector.errors import IntegrityError, DataError
 
-from dades import usuari_dao
-from logica.entitats import Usuari
-from presentacio.errors import mostrar_error_usuari_ja_existeix_o_tipus_incorrecte, mostrar_error_verificar_usuari, \
+from hday.dades import usuari_dao
+from hday.logica.entitats import Usuari
+from hday.presentacio.errors import mostrar_error_usuari_ja_existeix_o_tipus_incorrecte, mostrar_error_verificar_usuari, \
     mostrar_error_format_dades
-from presentacio.general import mostrar_capcalera, demanar_intro
-from presentacio.usuari import existeix_usuari, demanar_login, demanar_registre_de_nou_usuari
+from hday.presentacio.general import mostrar_capcalera, demanar_intro
+from hday.presentacio.usuari import existeix_usuari, demanar_login, demanar_registre_de_nou_usuari
 
 
 def demanar_usuari():

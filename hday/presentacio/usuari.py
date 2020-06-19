@@ -6,8 +6,7 @@ Funcions de la capa de presentació relacionades amb la gestió dels usuaris.
 
 from getpass import getpass
 
-import logica.entitats
-from dades import usuari_dao
+import hday.logica.entitats
 from . import administracio
 from .general import demanar_intro
 

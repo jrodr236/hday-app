@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import time
 
-import dades.prova_superada_dao
+import hday.dades.prova_superada_dao
 
 
-from dades import ranking_dao
-from presentacio.monitoritzar import mostrar_ranking, mostrar_esdeveniments
+from hday.dades import ranking_dao
+from hday.presentacio.monitoritzar import mostrar_ranking, mostrar_esdeveniments
 
 
 def ranking():

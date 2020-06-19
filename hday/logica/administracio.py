@@ -3,14 +3,14 @@
 
 from mysql.connector.errors import IntegrityError, DataError
 
-from dades import prova_dao, repte_dao, prova_superada_dao
-from dades.administracio import *
-from fitxers import *
-from presentacio.administracio import *
-from presentacio.errors import mostrar_error_lectura_fitxer, mostrar_error_format_dades, \
+from hday.dades import prova_dao, repte_dao, prova_superada_dao
+from hday.dades.administracio import *
+from hday.fitxers import *
+from hday.presentacio.administracio import *
+from hday.presentacio.errors import mostrar_error_lectura_fitxer, mostrar_error_format_dades, \
     mostrar_error_repte_no_existeix, mostrar_error_integritat_prova_superada, mostrar_error_repte_amb_proves, \
     mostrar_error_prova_amb_superacions, mostrar_error_tipus_usuari_no_existeix, mostrar_error_repte_ja_existeix
-from presentacio.general import *
+from hday.presentacio.general import *
 
 
 def administrar():

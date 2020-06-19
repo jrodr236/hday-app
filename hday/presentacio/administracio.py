@@ -2,9 +2,9 @@
 
 from typing import List
 
-from dades import usuari_dao
-from logica import constants
-from logica.entitats import Prova, Repte, Usuari, ProvaSuperada
+from hday.dades import usuari_dao
+from hday.logica import constants
+from hday.logica.entitats import Prova, Repte, Usuari, ProvaSuperada
 from .general import demanar_intro
 
 

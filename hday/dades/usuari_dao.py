@@ -2,9 +2,9 @@
 
 from typing import List
 
-from logica.claus import CLAU_CONTRASENYA
-from logica.entitats import Usuari
-from dades.helper import obtenir_connexio, commit
+from hday.logica.claus import CLAU_CONTRASENYA
+from hday.logica.entitats import Usuari
+from hday.dades.helper import obtenir_connexio, commit
 
 
 def crear(usuari: Usuari) -> None:

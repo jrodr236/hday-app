@@ -4,7 +4,7 @@
 import csv
 import os
 
-from logica.entitats import Repte, Prova
+from hday.logica.entitats import Repte, Prova
 
 
 def es_ruta_correcta(ruta):

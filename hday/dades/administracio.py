@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 
-import logica.entitats
-from logica import constants
-from . import usuari_dao
-from .helper import obtenir_connexio, commit
-
+from hday.logica import constants
 # L'encriptació de les contrasenyes es realitza al MySQL
-from logica.claus import CLAU_CONTRASENYA
+from hday.logica.claus import CLAU_CONTRASENYA
+from .helper import obtenir_connexio, commit
 
 
 def eliminar_taules():

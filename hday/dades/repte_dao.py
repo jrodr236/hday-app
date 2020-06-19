@@ -2,9 +2,9 @@
 
 
 from typing import List
-from dades.helper import obtenir_connexio, commit
-from dades.prova_dao import obtenir_proves_de_repte
-from logica.entitats import Repte, Usuari
+from hday.dades.helper import obtenir_connexio, commit
+from hday.dades.prova_dao import obtenir_proves_de_repte
+from hday.logica.entitats import Repte, Usuari
 
 
 def obtenir_reptes_i_les_seves_proves(usuari: Usuari = None) -> List[Repte]:

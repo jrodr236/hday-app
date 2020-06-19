@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from logica import constants
+from hday.logica import constants
 
 
 class Repte:

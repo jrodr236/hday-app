@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 
-from logica.entitats import ProvaJaSuperada
-from presentacio.general import *
-from presentacio.joc import *
-from dades import prova_dao, repte_dao, usuari_dao
+from hday.logica.entitats import ProvaJaSuperada
+from hday.presentacio.general import *
+from hday.presentacio.joc import *
+from hday.dades import prova_dao, repte_dao, usuari_dao
 
 
 def resoldre_reptes(usuari):

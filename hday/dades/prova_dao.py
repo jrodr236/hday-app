@@ -6,9 +6,9 @@ from typing import List
 
 import mysql.connector
 
-from dades.helper import obtenir_connexio, commit, tancar_connexio
-from logica import constants
-from logica.entitats import Repte, ProvaJaSuperada, Prova, Usuari
+from hday.dades.helper import obtenir_connexio, commit, tancar_connexio
+from hday.logica import constants
+from hday.logica.entitats import Repte, ProvaJaSuperada, Prova, Usuari
 
 
 def verificar_codi(prova: Prova, usuari: Usuari, codi: str) -> bool:

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from presentacio.general import mostrar_menu_principal, mostrar_capcalera, demanar_intro
-from presentacio.errors import mostrar_error_control_c
-from logica.administracio import administrar
-from logica.joc import resoldre_reptes
-from logica.general import demanar_usuari
-from logica.monitoritzar import ranking, esdeveniments
-from dades.usuari_dao import obtenir_punts
+from hday.presentacio.general import mostrar_menu_principal, mostrar_capcalera, demanar_intro
+from hday.presentacio.errors import mostrar_error_control_c
+from hday.logica.administracio import administrar
+from hday.logica.joc import resoldre_reptes
+from hday.logica.general import demanar_usuari
+from hday.logica.monitoritzar import ranking, esdeveniments
+from hday.dades.usuari_dao import obtenir_punts
 
 
 def main():

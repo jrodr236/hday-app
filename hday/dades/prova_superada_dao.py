@@ -2,9 +2,8 @@
 
 from typing import List
 
-from dades.helper import obtenir_connexio, commit
-from logica import constants
-from logica.entitats import Usuari, Repte, Prova, ProvaSuperada
+from hday.dades.helper import obtenir_connexio, commit
+from hday.logica.entitats import Usuari, Repte, Prova, ProvaSuperada
 
 
 def obtenir() -> List:
