@@ -11,9 +11,6 @@ from dades.usuari_dao import obtenir_punts
 
 
 def main():
-    """
-    Programa principal
-    """
     try:
         usuari = demanar_usuari()
         seguim = usuari is not None
