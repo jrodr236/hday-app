@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from dades.helper import obtenir_connexio, commit
-from logica.claus import CLAU_CONTRASENYA
+from logica.claus import CLAU_PER_ENCRIPTAR_CONTRASENYES
 from logica.entitats import Usuari
 
 
@@ -14,7 +14,7 @@ def crear(usuari: Usuari) -> None:
         INSERT INTO Usuari(nom, contrasenya, tipus)
         VALUES (%s, AES_ENCRYPT(%s,UNHEX(%s)), %s)
     """
-    valors = (usuari.nom, usuari.contrasenya, CLAU_CONTRASENYA, usuari.tipus)
+    valors = (usuari.nom, usuari.contrasenya, CLAU_PER_ENCRIPTAR_CONTRASENYES, usuari.tipus)
 
     cursor.execute(query, valors)
 
@@ -31,7 +31,7 @@ def autenticar(nom, contrasenya):
         FROM Usuari
         WHERE nom=%s AND contrasenya=AES_ENCRYPT(%s, UNHEX(%s))
     """
-    valors = (nom, contrasenya, CLAU_CONTRASENYA)
+    valors = (nom, contrasenya, CLAU_PER_ENCRIPTAR_CONTRASENYES)
     cursor.execute(query, valors)
 
     resultat = cursor.fetchone()
@@ -67,7 +67,7 @@ def obtenir_punts(usuari: Usuari) -> None:
     usuari.actualitzar_punts(puntuacio)
 
 
-def obtenir_tipus_usuari():
+def obtenir_els_tipus_usuari():
     conn = obtenir_connexio()
 
     cursor = conn.cursor()

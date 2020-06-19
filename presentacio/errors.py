@@ -26,3 +26,7 @@ def mostrar_error_format_dades():
 
 def mostrar_error_tipus_usuari_no_existeix():
     print("ERROR: no existeix aquest tipus d'usuari.")
+
+
+def mostrar_error_constrasenyes_no_coincideixen():
+    print("Les dues contrasenyes no coincideixen.")

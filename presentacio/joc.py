@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from presentacio.general import demanar_intro
+from presentacio.general import demana_intro
 
 
-def demanar_codi_per_superar_prova(repte):
+def demana_codi_per_superar_prova(repte):
     codi = ""
     if repte.esta_el_repte_superat():
-        demanar_intro()
+        demana_intro()
     else:
         codi = input("Codi (ENTER per sortir): ")
 
@@ -14,21 +14,21 @@ def demanar_codi_per_superar_prova(repte):
     return codi
 
 
-def mostrar_codi_correcte(codi_correcte):
+def mostra_avis_codi_correcte(codi_correcte):
     if codi_correcte:
         print("OK. Codi correcte.")
     else:
         print("ERROR. Codi incorrecte.")
-    demanar_intro()
+    demana_intro()
 
 
-def mostrar_prova_ja_superada():
+def mostra_avis_prova_ja_superada():
     print("Aquesta prova ja havia estat superada.")
     print("ATENCIÓ: no facis trampes!")
-    demanar_intro()
+    demana_intro()
 
 
-def mostrar_proves_per_superar_d_un_repte(repte):
+def mostra_proves_per_superar_d_un_repte(repte):
     titol = "Repte: {}".format(repte.nom)
     print(titol)
     print("-" * len(titol))

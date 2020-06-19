@@ -8,7 +8,7 @@ from dades.prova_dao import obtenir_proves_de_repte
 from logica.entitats import Repte, Usuari
 
 
-def obtenir_reptes_i_les_seves_proves(usuari: Usuari = None) -> List[Repte]:
+def obtenir_reptes_i_les_seves_proves(usuari: Usuari) -> List[Repte]:
     conn = obtenir_connexio()
 
     cursor = conn.cursor()

@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from .general import demanar_intro
+from .general import demana_intro
 
 
-def demanar_ruta_csv_per_importar_dades():
+def demana_ruta_csv_per_importar_dades():
     print("El format de les files del fitxer per carregar les proves ha de ser:")
     print("nom prova,ordre,tipus_usuari(NULL/gm/gs),enunciat,codi,puntuacio")
     print()
@@ -11,15 +11,7 @@ def demanar_ruta_csv_per_importar_dades():
     return ruta
 
 
-def mostrar_error_ruta_fitxer():
+def mostra_error_ruta_fitxer():
     print("No es troba cap fitxer en aquesta ruta.")
     print()
-    demanar_intro()
-
-
-def formatar_llista(llista):
-    out = "("
-    for item in llista:
-        out = out + item + ", "
-    out = out[0:-2] + ")"
-    return out
+    demana_intro()

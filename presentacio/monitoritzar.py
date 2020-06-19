@@ -4,11 +4,11 @@ from datetime import datetime
 from typing import List
 
 from logica.entitats import ProvaSuperada
-from .general import netejar_pantalla
+from .general import neteja_pantalla
 
 
-def mostrar_ranking(ranking):
-    netejar_pantalla()
+def mostra_ranking(ranking):
+    neteja_pantalla()
     print("Ranking ({})".format(datetime.now().strftime('%H:%M:%S')))
     print("-------")
     i = 1
@@ -28,8 +28,8 @@ def mostrar_ranking(ranking):
     print("^C per sortir")
 
 
-def mostrar_esdeveniments(proves_superades: List[ProvaSuperada]):
-    netejar_pantalla()
+def mostra_esdeveniments(proves_superades: List[ProvaSuperada]):
+    neteja_pantalla()
     print("Últims esdeveniments ({})".format(datetime.now().strftime('%H:%M:%S')))
     print("--------------------")
     for ps in proves_superades:

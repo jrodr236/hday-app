@@ -46,8 +46,7 @@ def verificar_codi(prova: Prova, usuari: Usuari, codi: str) -> bool:
         raise ProvaJaSuperada()
 
 
-def obtenir_proves_de_repte(repte: Repte, usuari: Usuari = None) -> None:
-    # Es permet que l'usuari sigui None
+def obtenir_proves_de_repte(repte: Repte, usuari: Usuari) -> None:
     conn = obtenir_connexio()
 
     cursor = conn.cursor()
@@ -62,13 +61,10 @@ def obtenir_proves_de_repte(repte: Repte, usuari: Usuari = None) -> None:
         WHERE p.repte=%s
     """
 
-    if usuari is not None:
-        query += """
-            AND p.tipus_usuari IN (%s, %s)
-        """
-        valors = (usuari.nom, repte.nom, usuari.tipus, constants.TOTHOM)
-    else:
-        valors = (None, repte.nom)
+    query += """
+        AND p.tipus_usuari IN (%s, %s)
+    """
+    valors = (usuari.nom, repte.nom, usuari.tipus, constants.TOTHOM)
 
     query += """
         ORDER BY ordre

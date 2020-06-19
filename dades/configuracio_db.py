@@ -3,9 +3,9 @@
 
 from typing import Dict
 
-from logica.claus import PASSWDBD
+from logica.claus import CLAU_USUARI_BASE_DE_DADES
 
 mysql_cfg: Dict[str, str] = {'host': 'localhost',
                              'user': 'hday',
-                             'passwd': PASSWDBD,
+                             'passwd': CLAU_USUARI_BASE_DE_DADES,
                              'db': 'hday'}

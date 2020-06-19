@@ -7,13 +7,13 @@ from presentacio.general import *
 from presentacio.joc import *
 
 
-def resoldre_reptes(usuari):
+def jugar(usuari):
     while True:
         usuari_dao.obtenir_punts(usuari)
-        mostrar_capcalera(usuari)
+        mostra_capcalera(usuari)
         reptes = repte_dao.obtenir_reptes_i_les_seves_proves(usuari)
-        mostrar_reptes(reptes, False, True)
-        repte = escollir_repte(reptes)
+        mostra_reptes(reptes)
+        repte = escull_repte(reptes)
 
         if repte is None:
             continue
@@ -26,13 +26,13 @@ def resoldre_reptes(usuari):
 def respondre_prova(usuari, repte):
     while True:
         usuari_dao.obtenir_punts(usuari)
-        mostrar_capcalera(usuari)
+        mostra_capcalera(usuari)
         # S'actualitzen les proves per si hi ha hagut alguna actualització, per exemple, si s'ha resolt alguna prova
-        # en un altre execució del joc.
+        # en un altre execució concurrent del joc.
         prova_dao.obtenir_proves_de_repte(repte, usuari)
         prova_per_resoldre = repte.dona_primera_prova_sense_resoldre()
-        mostrar_proves_per_superar_d_un_repte(repte)
-        codi = demanar_codi_per_superar_prova(repte)
+        mostra_proves_per_superar_d_un_repte(repte)
+        codi = demana_codi_per_superar_prova(repte)
 
         if codi == "":
             break
@@ -45,7 +45,7 @@ def respondre_prova(usuari, repte):
             if codi_correcte:
                 prova_per_resoldre.superar()
 
-            mostrar_codi_correcte(codi_correcte)
+            mostra_avis_codi_correcte(codi_correcte)
         except ProvaJaSuperada:
-            mostrar_prova_ja_superada()
+            mostra_avis_prova_ja_superada()
             return

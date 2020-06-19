@@ -2,7 +2,7 @@
 
 from logica import constants
 # L'encriptació de les contrasenyes es realitza al MySQL
-from logica.claus import CLAU_CONTRASENYA
+from logica.claus import CLAU_PER_ENCRIPTAR_CONTRASENYES
 from .helper import obtenir_connexio, commit
 
 
@@ -30,51 +30,6 @@ def eliminar_taules():
     conn = obtenir_connexio()
     cursor = conn.cursor()
     cursor.execute("DROP TABLE IF EXISTS Repte")
-    commit(conn, cursor)
-
-
-def inserir_valors():
-    conn = obtenir_connexio()
-
-    cursor = conn.cursor()
-
-    cursor.execute("""
-        INSERT INTO Repte(nom)
-        VALUES  ("1r repte"),
-                ("2n repte")
-    """)
-
-    cursor.execute("""
-        INSERT INTO Prova(repte, ordre, tipus_usuari, enunciat, codi, puntuacio)
-        VALUES  ("1r repte", 1, "tothom", "Enunciat prova 1", "codi 11", 100),
-                ("1r repte", 2, "tothom", "Enunciat prova 2", "codi 12", 100),
-                ("2n repte", 1, "tothom", "Enunciat prova 111", "codi 21", 100),
-                ("2n repte", 2, "gm", "Enunciat prova 222", "codi 22", 1000),
-                ("2n repte", 3, "gs", "Enunciat prova 333", "codi 33", 1000)
-    """)
-
-    query = """
-        INSERT INTO Usuari(nom, contrasenya, tipus)
-        VALUES  ("dummy1", AES_ENCRYPT(%s,UNHEX(%s)), "gm")
-    """
-    valors = ("patata", CLAU_CONTRASENYA)
-    cursor.execute(query, valors)
-
-    query = """
-        INSERT INTO Usuari(nom, contrasenya, tipus)
-        VALUES  ("dummy2", AES_ENCRYPT(%s,UNHEX(%s)), "gs")
-    """
-    valors = ("patata", CLAU_CONTRASENYA)
-    cursor.execute(query, valors)
-
-    cursor.execute("""
-        INSERT INTO Prova_superada(data, repte, ordre_prova, nom_usuari)
-        VALUES  ("2019-12-20 12:00:00", "1r repte", 1, "dummy1"),
-                ("2019-12-20 12:01:00", "1r repte", 2, "dummy1"),
-                ("2019-12-20 12:02:00", "2n repte", 1, "dummy1"),
-                ("2019-12-20 12:03:00", "2n repte", 2, "dummy1")
-    """)
-
     commit(conn, cursor)
 
 
@@ -146,5 +101,50 @@ def crear_taules():
         ("gm",),
         ("gs",)
     ])
+
+    commit(conn, cursor)
+
+
+def inserir_valors():
+    conn = obtenir_connexio()
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        INSERT INTO Repte(nom)
+        VALUES  ("1r repte"),
+                ("2n repte")
+    """)
+
+    cursor.execute("""
+        INSERT INTO Prova(repte, ordre, tipus_usuari, enunciat, codi, puntuacio)
+        VALUES  ("1r repte", 1, "tothom", "Enunciat prova 1", "codi 11", 100),
+                ("1r repte", 2, "tothom", "Enunciat prova 2", "codi 12", 100),
+                ("2n repte", 1, "tothom", "Enunciat prova 111", "codi 21", 100),
+                ("2n repte", 2, "gm", "Enunciat prova 222", "codi 22", 1000),
+                ("2n repte", 3, "gs", "Enunciat prova 333", "codi 33", 1000)
+    """)
+
+    query = """
+        INSERT INTO Usuari(nom, contrasenya, tipus)
+        VALUES  ("dummy1", AES_ENCRYPT(%s,UNHEX(%s)), "gm")
+    """
+    valors = ("patata", CLAU_PER_ENCRIPTAR_CONTRASENYES)
+    cursor.execute(query, valors)
+
+    query = """
+        INSERT INTO Usuari(nom, contrasenya, tipus)
+        VALUES  ("dummy2", AES_ENCRYPT(%s,UNHEX(%s)), "gs")
+    """
+    valors = ("patata", CLAU_PER_ENCRIPTAR_CONTRASENYES)
+    cursor.execute(query, valors)
+
+    cursor.execute("""
+        INSERT INTO Prova_superada(data, repte, ordre_prova, nom_usuari)
+        VALUES  ("2019-12-20 12:00:00", "1r repte", 1, "dummy1"),
+                ("2019-12-20 12:01:00", "1r repte", 2, "dummy1"),
+                ("2019-12-20 12:02:00", "2n repte", 1, "dummy1"),
+                ("2019-12-20 12:03:00", "2n repte", 2, "dummy1")
+    """)
 
     commit(conn, cursor)

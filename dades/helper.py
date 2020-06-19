@@ -29,4 +29,3 @@ def tancar_connexio(conn, cursor):
     if conn.is_connected():
         cursor.close()
         conn.close()
-        # print("connection is closed")
