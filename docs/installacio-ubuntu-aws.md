@@ -38,7 +38,7 @@ login hday
 cd hday
 pip3 install mysql-connector
 cd
-python3 hday/reiniciar.sh
+python3 hday/reiniciar.py
 
 
 exit # tornar a ser root
