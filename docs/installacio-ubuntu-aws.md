@@ -30,8 +30,8 @@ EXIT
 
 /usr/sbin/adduser hday
 
-** descarregar el programa amb l'usuari hday **
-chmod +x /home/hday/hday-app/app/hday.sh
+** descarregar el programa amb usuari hday **
+chmod +x /home/hday/hday-app/hday.sh
 
 login hday
 
