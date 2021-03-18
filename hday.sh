@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 hday
+python3 app
