@@ -30,15 +30,14 @@ EXIT
 
 /usr/sbin/adduser hday
 
-** pujar programa amb usuari hday **
-chmod +x /home/hday/hday.sh
+** descarregar el programa amb l'usuari hday **
+chmod +x /home/hday/hday-app/app/hday.sh
 
 login hday
 
-cd hday
+cd hday-app
 pip3 install mysql-connector
-cd
-python3 hday/reiniciar.py
+python3 app/reiniciar.py
 
 
 exit # tornar a ser root
@@ -53,6 +52,8 @@ Match User hday
 
 systemctl restart sshd
 
+login hday
+cd hday-app
 ./hday.sh
 
 
