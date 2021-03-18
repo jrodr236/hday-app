@@ -1,0 +1,11 @@
+Michael,1,"tothom","Les màquines de cafè han cobrat vida! I ens ataquen!
+Però com ens podem defensar d'aquestes màquines? Doncs treient-les l'electriciat.
+En Michael, un antic fabricant de màquines de cafè, ens ha deixat una sèrie de pistes per trobar la localització del generador principal que fan servir les maleides màquines de cafè.
+Aquesta és la primera pista:
+192.168.7*2.7*2
+ssh
+michael/patata",94873,100
+Michael,2,"tothom","look for the hidden file",19433,100
+Michael,3,"tothom","En Michael va esbrinar que una prova irrefutable que no ets una màquina de cafè és demostrar que ets capaç de fer malabars amb dues pilotes de paper durant 5 segons. Demostra-ho! Demostra que no ets una màquina de cafè!",76328,100
+Michael,4,"gm","Només podràn obtenir la ubicació del generador principal aquells que tinguin els nervis d'acer. Per demostrar-ho has de Grimpar un cable de xarxa seguint l'estandard TIA/EIA-568-B",247599,200
+Michael,5,"gs","Només podràn obtenir la ubicació del generador principal aquells que tinguin els nervis d'acer. Per demostrar-ho has de calcular la suma de tots els números senars que van del 99 al 999",247599,200
