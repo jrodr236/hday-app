@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from dades.helper import obtenir_connexio, commit
-from logica.claus import CLAU_PER_ENCRIPTAR_CONTRASENYES
-from logica.entitats import Usuari
+from app.dades.helper import obtenir_connexio, commit
+from app.logica.claus import CLAU_PER_ENCRIPTAR_CONTRASENYES
+from app.logica.entitats import Usuari
 
 
 def crear(usuari: Usuari) -> None:

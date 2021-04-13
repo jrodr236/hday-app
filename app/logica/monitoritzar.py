@@ -2,8 +2,8 @@
 
 import time
 
-from dades import ranking_dao, prova_superada_dao
-from presentacio.monitoritzar import mostra_ranking, mostra_esdeveniments
+from app.dades import ranking_dao, prova_superada_dao
+from app.presentacio.monitoritzar import mostra_ranking, mostra_esdeveniments
 
 
 def ranking():

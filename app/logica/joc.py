@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 
-from dades import prova_dao, repte_dao, usuari_dao
-from logica.entitats import ProvaJaSuperada
-from presentacio.general import *
-from presentacio.joc import *
+from app.dades import prova_dao, repte_dao, usuari_dao
+from app.logica.entitats import ProvaJaSuperada
+from app.presentacio.general import *
+from app.presentacio.joc import *
 
 
 def jugar(usuari):

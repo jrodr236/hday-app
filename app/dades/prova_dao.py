@@ -4,9 +4,9 @@ from datetime import datetime
 
 import mysql.connector
 
-from dades.helper import obtenir_connexio, commit, tancar_connexio
-from logica import constants
-from logica.entitats import Repte, ProvaJaSuperada, Prova, Usuari
+from app.dades.helper import obtenir_connexio, commit, tancar_connexio
+from app.logica import constants
+from app.logica.entitats import Repte, ProvaJaSuperada, Prova, Usuari
 
 
 def verificar_codi(prova: Prova, usuari: Usuari, codi: str) -> bool:

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 
-from dades import repte_dao
-from fitxers import *
-from presentacio.administracio import *
-from presentacio.errors import *
-from presentacio.general import *
+from app.dades import repte_dao
+from app.fitxers import *
+from app.presentacio.administracio import *
+from app.presentacio.errors import *
+from app.presentacio.general import *
 
 
 def importar_proves_csv(ruta=None):

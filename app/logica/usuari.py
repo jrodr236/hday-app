@@ -2,12 +2,12 @@
 
 from mysql.connector.errors import IntegrityError, DataError
 
-from dades import usuari_dao
-from logica import constants
-from logica.entitats import Usuari
-from presentacio.errors import *
-from presentacio.general import mostra_capcalera, demana_intro
-from presentacio.usuari import demana_si_existeix_usuari, demana_login, demana_registre_de_nou_usuari
+from app.dades import usuari_dao
+from app.logica import constants
+from app.logica.entitats import Usuari
+from app.presentacio.errors import *
+from app.presentacio.general import mostra_capcalera, demana_intro
+from app.presentacio.usuari import demana_si_existeix_usuari, demana_login, demana_registre_de_nou_usuari
 
 
 def demanar_usuari():

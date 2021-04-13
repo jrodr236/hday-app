@@ -3,9 +3,9 @@
 
 from typing import List
 
-from dades.helper import obtenir_connexio, commit
-from dades.prova_dao import obtenir_proves_de_repte
-from logica.entitats import Repte, Usuari
+from app.dades.helper import obtenir_connexio, commit
+from app.dades.prova_dao import obtenir_proves_de_repte
+from app.logica.entitats import Repte, Usuari
 
 
 def obtenir_reptes_i_les_seves_proves(usuari: Usuari) -> List[Repte]:

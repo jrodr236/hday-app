@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from typing import List
-from dades.helper import obtenir_connexio, commit
-from logica import constants
-from logica.entitats import Usuari, Repte, Prova, ProvaSuperada
+from app.dades.helper import obtenir_connexio, commit
+from app.logica import constants
+from app.logica.entitats import Usuari, Repte, Prova, ProvaSuperada
 
 
 def obtenir_proves() -> List:

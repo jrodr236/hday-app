@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from logica import constants
+from app.logica import constants
 # L'encriptació de les contrasenyes es realitza al MySQL
-from logica.claus import CLAU_PER_ENCRIPTAR_CONTRASENYES
+from app.logica.claus import CLAU_PER_ENCRIPTAR_CONTRASENYES
 from .helper import obtenir_connexio, commit
 
 
